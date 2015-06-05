@@ -23,4 +23,3 @@ app.use(router());
 app.use(responser());
 app.use(errorHandler());
 app.listen(port);
-console.log('Application listening on port ' + port);
