@@ -12,13 +12,15 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   router = require('./router'),
   errorHandler = require('./middlewares/ErrorHandler'),
-  config = require('config');
+  config = require('config'),
+  responser = require('./middlewares/responser');
 
 var port = 4040;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(router());
+app.use(responser());
 app.use(errorHandler());
 app.listen(port);
 console.log('Application listening on port ' + port);

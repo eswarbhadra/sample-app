@@ -1,11 +1,11 @@
 'use strict';
 
 var express = require('express');
-var auth = require('./middlewares/auth');
+var auth = require('./middlewares/auth')    ;
 var UserController = require('./controllers/UserController');
 
 module.exports = function() {
-  var options = {
+    var options = {
     caseSensitive: true
   };
 
