@@ -9,13 +9,13 @@ exports.register = function(req, res, next) {
 	if(!entity.firstName || !entity.email) {
 		next({code: 400, message: 'First name or email address cannot be null or empty'});
 	}
-  userService.register(entity, function(err,res){
+  userService.register(entity, function(err,response){
     if(err){
         return next(err);
     }
 
     req.data = {statusCode:201,
-                content:res
+                content:response
               };
                   next();
   });
