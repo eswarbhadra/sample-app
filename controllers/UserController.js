@@ -21,7 +21,21 @@ exports.register = function(req, res, next) {
 };
 
 exports.login = function(req, res, next) {
+  var entity = req.body;
 
+  if(!entity.email || !entity.password) {
+    next({code: 400, message: 'Email address or password cannot be null or empty'});
+  }
+  userService.login(entity, function(err,response){
+    if(err){
+      return next(err);
+    }
+
+    req.data = { statusCode: 201,
+                 content: response
+               };
+    next();
+  });
 };
 
 exports.update = function(req, res, next) {

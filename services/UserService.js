@@ -10,3 +10,7 @@ exports.register = function(entity, callback) {
   // console.log(entity);
   //callback(entity);
 };
+
+exports.login = function(entity, callback) {
+  User.find(entity, callback);
+};
