@@ -12,5 +12,6 @@ exports.register = function(entity, callback) {
 };
 
 exports.login = function(entity, callback) {
-  User.find(entity, callback);
+  User.findOne(entity, callback);
+
 };

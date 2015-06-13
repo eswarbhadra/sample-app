@@ -5,5 +5,6 @@ var middleware = function(err, req, res, next) {
 };
 
 module.exports = function() {
+
 	return middleware;
 }

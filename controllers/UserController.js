@@ -24,14 +24,18 @@ exports.login = function(req, res, next) {
   var entity = req.body;
 
   if(!entity.email || !entity.password) {
+
     next({code: 400, message: 'Email address or password cannot be null or empty'});
   }
   userService.login(entity, function(err,response){
+    if(response == null){
+      next({code: 404, message: 'Resource not found'});
+    }
+
     if(err){
       return next(err);
     }
-
-    req.data = { statusCode: 201,
+    req.data = { statusCode: 200,
                  content: response
                };
     next();
